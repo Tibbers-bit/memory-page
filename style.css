@@ -1,0 +1,98 @@
+@import url('https://fonts.googleapis.com/css2?family=Ma+Shan+Zheng&family=Noto+Serif+SC:wght@300;600&display=swap');
+
+:root {
+    --paper-bg: #fdfaf5;
+    --ink-black: #2c3e50;
+    --heart-red: #a93226; 
+    --dog-gold: #b58d4c;  
+}
+
+body {
+    background-color: #eeebe5;
+    color: var(--ink-black);
+    font-family: 'Noto Serif SC', serif;
+    margin: 0; padding: 20px;
+    display: flex; justify-content: center;
+    user-select: none;
+}
+
+.letter-container {
+    background-color: var(--paper-bg);
+    max-width: 900px; width: 100%;
+    padding: 60px 40px;
+    box-shadow: 0 15px 50px rgba(0,0,0,0.1);
+    position: relative; border: 1px solid #e0dcd5;
+    min-height: 90vh;
+}
+
+.reveal-item {
+    opacity: 0; filter: blur(10px); transform: translateY(10px);
+    transition: all 1.2s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.reveal-item.show {
+    opacity: 1; filter: blur(0); transform: translateY(0);
+}
+.no-anim { transition: none !important; opacity: 1 !important; filter: blur(0) !important; transform: none !important; }
+
+header { text-align: center; margin-bottom: 60px; }
+.title { font-family: 'Ma Shan Zheng', cursive; font-size: 2.8rem; color: var(--heart-red); margin: 0; }
+
+/* 浪漫话语样式：增加可点击反馈 */
+.romantic-intro {
+    color: var(--dog-gold);
+    margin: 15px auto 0;
+    max-width: 80%;
+    font-size: 1rem;
+    letter-spacing: 2px;
+    font-style: italic;
+    cursor: pointer;
+    padding: 5px 10px;
+    border-radius: 4px;
+    transition: 0.3s;
+}
+.romantic-intro:hover { background: rgba(181, 141, 76, 0.08); }
+
+.content-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; position: relative; }
+.center-line { position: absolute; left: 50%; top: 0; bottom: 0; width: 1px; background: linear-gradient(to bottom, transparent, var(--dog-gold), transparent); transform: translateX(-50%); }
+
+.poem-column { line-height: 2.2; position: relative; min-height: 400px; }
+.xixi-side { text-align: right; }
+.dog-side { text-align: left; }
+
+.speaker-label { font-family: 'Ma Shan Zheng', cursive; font-size: 1.8rem; margin-bottom: 25px; display: block; cursor: pointer; transition: 0.3s; }
+.speaker-label:hover { transform: scale(1.05); }
+.xixi-label { color: var(--heart-red); }
+.dog-label { color: var(--dog-gold); }
+
+.line-item { 
+    display: block; margin-bottom: 12px; position: relative; cursor: pointer; 
+    padding: 4px 8px; border-radius: 4px; transition: 0.4s;
+}
+.line-item:hover { background: rgba(0,0,0,0.03); }
+
+.xixi-side .highlight { color: var(--heart-red); font-weight: 600; }
+.dog-side .highlight { color: var(--dog-gold); font-weight: 600; }
+
+.time-tag { font-size: 0.7rem; color: #ccc; display: block; margin-bottom: 2px; }
+
+#input-overlay {
+    display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+    background: rgba(0,0,0,0.4); backdrop-filter: blur(5px);
+    justify-content: center; align-items: center; z-index: 100;
+}
+.input-card {
+    background: var(--paper-bg); padding: 30px; width: 85%; max-width: 400px;
+    border-radius: 8px; border-top: 5px solid var(--dog-gold);
+}
+.input-card.xixi-theme { border-top-color: var(--heart-red); }
+
+textarea {
+    width: 100%; height: 120px; border: 1px solid #ddd; padding: 10px;
+    font-family: inherit; resize: none; box-sizing: border-box; margin-bottom: 15px;
+}
+.btn-group { display: flex; justify-content: space-between; align-items: center; }
+.btn-del { background: transparent; color: #999; border: none; cursor: pointer; font-size: 0.8rem; }
+.btn-save { background: var(--dog-gold); color: white; padding: 8px 25px; border: none; border-radius: 4px; cursor: pointer; }
+.xixi-theme .btn-save { background: var(--heart-red); }
+
+@media (max-width: 768px) { .content-grid { grid-template-columns: 1fr; } .center-line { display: none; } }
