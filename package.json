@@ -1,0 +1,9 @@
+{
+  "name": "memory-page",
+  "version": "1.0.0",
+  "description": "A static memory page",
+  "scripts": {
+    "install": "echo \"Skipping npm install for static site.\"",
+    "build": "echo \"Skipping build for static site.\""
+  }
+}
